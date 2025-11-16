@@ -14,11 +14,11 @@ public class Palindromo {
             return true;
         }
 
-        // 1. Limpiar (eliminar espacios y puntuación)
+        // 1. Limpiar
         // 2. Convertir a minúsculas para que 'Oso' sea igual que 'oso'
         String palabraLimpia = palabra.toLowerCase().replaceAll("[^a-z0-9]", "");
         
-        // Llamada inicial a tu método recursivo
+        // Llamada inicial al método recursivo
         return esPalindroma(palabraLimpia, 0, palabraLimpia.length() - 1);
     }
 	
@@ -38,7 +38,6 @@ public class Palindromo {
         System.out.println("--- Prueba de Palíndromo Recursivo ---");
         System.out.println("--------------------------------------");
 
-        // Casos de prueba: Incluye TRUE, FALSE, mayúsculas y frases (si las hubieras permitido)
         String[] pruebas = {
             "oso",              // TRUE: Simple
             "Reconocer",        // TRUE: Maneja mayúsculas
@@ -50,7 +49,7 @@ public class Palindromo {
         };
 
         for (String palabra : pruebas) {
-            // Se llama al método wrapper esPalindroma(String)
+            // Llama al método esPalindroma(String)
             boolean resultado = esPalindroma(palabra); 
             String estado = resultado ? "✅ Sí es un palíndromo" : "❌ No es un palíndromo";
             

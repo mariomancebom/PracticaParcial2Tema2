@@ -41,15 +41,28 @@ public class Persona {
      * @param nivel La profundidad en el árbol (0 para el objeto actual).
      * @return String con el nombre de la persona y sus descendientes.
      */
-    private String obtenerFamiliaRecursivo(int nivel) {
-        // 1. Caso Base: ¿Qué devuelve si no tiene hijos?
-        // 2. Paso Recursivo: 
-        //    a) Prepara el prefijo para la persona actual (ej: "--- ")
-        //    b) Concatena el nombre actual.
-        //    c) Itera sobre los hijos y llama recursivamente a obtenerFamiliaRecursivo(nivel + 1)
-        //    d) Concatena los resultados de las llamadas recursivas.        
-        return null;
-    }
+	private String obtenerFamiliaRecursivo(int nivel) {
+		String sangria = "";
+		for (int i = 0; i < nivel; i++) {
+			sangria = sangria + "---";
+		}
+		String arbolGenealogico = sangria + this.nombre;
+		// 1. Caso Base: ¿Qué devuelve si no tiene hijos?
+		if (hijos.size() == 0) {
+			return arbolGenealogico;
+		}
+		// 2. Paso Recursivo:
+		// a) Prepara el prefijo para la persona actual (ej: "--- ")
+		// b) Concatena el nombre actual.
+		// c) Itera sobre los hijos y llama recursivamente a
+		// obtenerFamiliaRecursivo(nivel + 1)
+		// d) Concatena los resultados de las llamadas recursivas.
+		for (Persona hijo : hijos) {
+			String descendientes = hijo.obtenerFamiliaRecursivo(nivel + 1);
+			arbolGenealogico = arbolGenealogico + "\n" + descendientes;
+		}
+		return arbolGenealogico;
+	}
     
     @Override
     public String toString() {

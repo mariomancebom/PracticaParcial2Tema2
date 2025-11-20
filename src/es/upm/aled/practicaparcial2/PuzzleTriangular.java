@@ -25,11 +25,7 @@ public class PuzzleTriangular {
 	    if (cDest < 0 || cDest >= tablero[fDest].length) {
 	        return false;
 	    }
-
-	    // Nota: No hace falta comprobar límites de 'fMedio/cMedio' explícitamente 
-	    // porque geométricamente siempre estarán entre el origen y el destino. 
-	    // Si el destino es válido, el medio también lo será en este juego.
-
+	    
 	    // 3. COMPROBAR CONTENIDO (Reglas del juego)
 	    // Regla A: La casilla que saltamos (medio) debe tener una ficha (1).
 	    // Regla B: La casilla donde caemos (destino) debe estar vacía (0).
